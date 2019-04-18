@@ -40,15 +40,15 @@
       <div class="site-mobile-menu-body"></div>
     </div>
     
-    <header class="site-navbar py-3" role="banner">
+    <header class="site-navbar py-3" role="banner" id="top-nav">
       <div class="container">
         <div class="row align-items-center">
           
           <div class="col-11 col-xl-2">
             <h1 class="mb-0"><a href="index.php" class="text-white h2 mb-0">Logo</a></h1>
           </div>
-          <div class="col-12 col-md-10 d-none d-xl-block">
-            <nav class="site-navigation position-relative text-right" role="navigation">
+          <div class="col-12 col-md-10 d-none d-xl-block" >
+            <nav class="site-navigation position-relative text-right" role="navigation" >
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                 <li class="active"><a href="index.php">Home</a></li>
@@ -78,7 +78,7 @@
             
 
             <h1 class="text-white font-weight-light mb-5 text-uppercase font-weight-bold">Opportunities will not wait long.</h1>
-            <p><a href="#" class="btn btn-primary py-3 px-5 text-white">Sign Up!</a></p>
+            <p><a href="http://dev.digihire.ml/user_signup.php" class="btn btn-primary py-3 px-5 text-white" id="btn_signup">Sign Up!</a></p>
 
           </div>
         </div>
@@ -188,7 +188,7 @@
         </div>
       </div>
     </div>
-    <div class="site-section mt-5 border-top border-bottom" style="background-color:#FB8C00;color:white;">
+    <div class="site-section mt-5 border-top border-bottom" style="background-color:#0caa41;color:white;">
       <div class="container">
       <div class="row">
         <div class="slide-one-item home-slider owl-carousel" >
@@ -267,7 +267,7 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">Testimonials</h2>
+            <h2 class="font-weight-light" style="color:#0caa41;">Testimonials</h2>
           </div>
         </div>
         <div class="slide-one-item home-slider owl-carousel">
@@ -324,7 +324,7 @@
     <div class="container mt-5 mb-5">
     <div class="row justify-content-center mb-5">
      <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">Partners</h2>
+            <h2 class="font-weight-light" style="color:#0caa41;">Partners</h2>
      </div>
     </div>
   </div>
@@ -385,8 +385,62 @@
     </div>
     </div>
     <!--Partner Slider Ends-->
-
-    <footer class="site-footer">
+    <div class="site-section border-bottom">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center border-primary">
+            <h2 class="font-weight-light" style="color:#0caa41;">Contact Us</h2>
+          </div>
+        </div>
+        <div id="formmessage">Thank You! For contacting Us. We'll reach you soon.</div>
+        <form id="contact_form" method="post">
+            <input type="hidden" name="send_email" value="1">
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" placeholder="Your Name" required="required:true;">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Your Email" required="required:true;">
+            </div>
+        
+          <div class="form-group">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required="required:true;">  
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Message" class="form-control" name="message" rows="5" required="required:true;"></textarea>  
+          </div>
+          <button type="submit" class="btn" style="background-color:#0caa41;color:white;">Submit</button>
+          </form>
+      </div>
+    </div>
+    <?php
+      $send_email = isset($_POST['send_email'])?$_POST['send_email']:'';
+      if($send_email==1){
+        $email_to = 'admin@digihire.ml';
+    
+    $name = $_POST['name']; // required
+    $email_from = $_POST['email']; // required
+    $subject =  $_POST['subject'];// required
+    $message =  $_POST['message'];// required
+ 
+    $email_message = "Contact Email:\n\n";
+ 
+    function clean_string($string) {
+      $bad = array("content-type","bcc:","to:","cc:","href");
+      return str_replace($bad,"",$string);
+    }
+ 
+    $email_message .= "Name: ".clean_string($name)."\n";
+    $email_message .= "Email: ".clean_string($email_from)."\n";
+    $email_message .= "Message: ".clean_string($message)."\n";
+ 
+	// create email headers
+	$headers = 'From: '.$email_from."\r\n".
+	'Reply-To: '.$email_from."\r\n" .
+	'X-Mailer: PHP/' . phpversion();
+	mail($email_to, $subject, $email_message, $headers);  
+    }
+    ?>
+    <footer class="site-footer" style="padding-top: 4rem;padding-bottom:0px;">
       <div class="container">
         <div class="row">
           <div class="col-md-9">
@@ -463,9 +517,10 @@
   <script src="assets/js/jquery.magnific-popup.min.js"></script>
   <script src="assets/js/bootstrap-datepicker.min.js"></script>
   <script src="assets/js/aos.js"></script>
-
   <script src="assets/js/main.js"></script>
   <script src="assets/js/partner_slider.js"></script>
+  <!--Js Created by developer-->
+  <script src="assets/js/custom_page.js"></script>
   <script type="text/javascript">jssor_1_slider_init();</script>  
 </body>
 </html>

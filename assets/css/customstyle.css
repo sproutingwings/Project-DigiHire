@@ -18,5 +18,23 @@ html,body
     to { transform: rotate(360deg); }
 }
 .part_pad{
-    padding:7px;
+    padding: 18px;
+}
+#top-nav{
+    background-color: #0caa41 !important;
+    opacity:0.8;
+    font-weight: bold;
+    position: fixed;
+  }
+  #btn_signup{
+    background-color: #0caa41 !important;
+  }
+#formmessage{
+    color: #0caa41;
+border: 1px solid #0caa41;
+display: none;
+text-align: center;
+padding: 15px;
+font-weight: 600;
+margin-bottom: 15px;
 }
