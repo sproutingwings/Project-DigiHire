@@ -2,17 +2,14 @@ $(document).ready(function(){
     $("input[type=submit]").attr('disabled','disabled');
     $('form').validate({
         rules:{
+            category:{
+                required:true
+            },
             first_name:{
                 required:true
             },
             last_name:{
                 required:true
-            },
-            adhaar_no:{
-                required:true,
-                minlength:12,
-                maxlength:12,
-                number:true
             },
             username:{
                 required:true,
@@ -59,6 +56,16 @@ $(document).ready(function(){
         }
         else {
             $("input[type=submit]").attr('disabled','disabled');
+        }
+    });
+    $("#radio_student").change(function(){
+        if($(this).val()==0){
+            $("#adhaar_no").show();
+        }
+    });
+    $("#radio_company").change(function(){
+        if($(this).val()==1){
+            $("#adhaar_no").hide();
         }
     });
 });

@@ -1,12 +1,11 @@
 <?php
-    session_start();
-    require 'session.php';
+    require 'functions.php';
+    
     if($_SESSION['category']==0){
-        //include 'student_dashboard.php';
+        include 'dashboard_student.php';
         echo "Student";
     }else if($_SESSION['category']==1){
-        //include 'company_dashboard.php';
-        echo "Admin";
+        include 'dashboard_organisation.php';
     }    
 
 ?>

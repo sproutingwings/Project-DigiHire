@@ -73,13 +73,13 @@
                     <!-- general form elements -->
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" method="post">
+                     <form class="form-horizontal" method="post">
                         <div class="box-body">
                             <input type="hidden" name="submit_verify" value="1">
                             <div class="form-group">
                                 <label for="username" class="col-sm-3 control-label">USERNAME<sup>*</sup></label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="username" name="username">
+                                    <input type="text" class="form-control" id="username" name="username" >
                                 </div>
                             </div>
                             <div class="form-group">
@@ -159,7 +159,7 @@
                             <br />
                             <input type="submit" class="btn btn-success" value="Sign in" />
                             <br />
-                            <a href="index.html">Already have an account? Login Now!</a>
+                            <a href="index.php">Already have an account? Login Now!</a>
                         </div>
                 </div>
                 <!-- /.box-footer -->
